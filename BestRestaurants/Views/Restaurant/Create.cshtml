@@ -1,6 +1,6 @@
 @model BestRestaurants.Models.Restaurant;
 
-<h1>Add a new Restaurant of the $"{}" cuisine below</h1>
+<h1>Add a new Restaurant of the @ViewBag.theCuisine.Name cuisine below</h1>
 
 @using (Html.BeginForm())
 {
@@ -9,6 +9,8 @@
 
     @Html.LabelFor(model => model.Description)
     @Html.TextBoxFor(model => model.Description)
+
+    @Html.Hidden("CuisineId", "@Model.CuisineId")
 
     <input type="submit" value="Add the restaurant"/>
    

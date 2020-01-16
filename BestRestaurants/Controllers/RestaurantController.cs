@@ -15,9 +15,19 @@ namespace BestRestaurants.Controllers
             _db = db;
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            Cuisine theCuisine = _db.Cuisine.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+            ViewBag.theCuisine = theCuisine;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Restaurant restaurant)
+        {
+            _db.Restaurant.Add(restaurant);
+            _db.SaveChanges();
+            return RedirectToAction("Details", new {id = restaurant.CuisineId});
         }
         
 
