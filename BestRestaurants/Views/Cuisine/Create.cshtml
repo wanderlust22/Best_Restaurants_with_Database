@@ -1,0 +1,14 @@
+@model BestRestaurants.Models.Cuisine;
+
+<h1>Add a new Cuisine below</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+
+    <input type="submit" value="Create the cuisine"/>
+   
+}
+
+<h3>@Html.ActionLink("Show all cuisines", "Index")</h3>

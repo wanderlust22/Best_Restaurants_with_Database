@@ -1,0 +1,13 @@
+@model BestRestaurants.Models.Cuisine;
+@using BestRestaurants.Models;
+
+
+<h3>@Model.Name</h3>
+
+@foreach (Restaurant restaurant in ViewBag.restaurnantsOfCuisine)
+{
+    <li>@Html.ActionLink($"{restaurant.Name}", "Details", "Restaurant", new {id = restaurant.RestaurantId})</li>
+}
+
+<h3>@Html.ActionLink("Add a new restaurant to this cuisine", "Create", "Restaurant"</h3>
+<h3>@Html.ActionLink("Back to cuisines", "Index")</h3>
