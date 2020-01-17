@@ -1,0 +1,17 @@
+@model BestRestaurants.Models.Restaurant;
+
+<h1>Edit @Model.Name</h1>
+
+<h3>It's current description reads: @Model.Description</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.RestaurantId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+
+    <input type="submit" value="Save" />
+}

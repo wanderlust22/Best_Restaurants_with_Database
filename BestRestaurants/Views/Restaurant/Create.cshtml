@@ -1,6 +1,6 @@
 @model BestRestaurants.Models.Restaurant;
 
-<h1>Add a new Restaurant of the @ViewBag.theCuisine.Name cuisine below</h1>
+@* <h1>Add a new Restaurant of the @ViewBag.theCuisine.Name cuisine below</h1> *@
 
 @using (Html.BeginForm())
 {
@@ -10,7 +10,12 @@
     @Html.LabelFor(model => model.Description)
     @Html.TextBoxFor(model => model.Description)
 
-    @Html.Hidden("CuisineId", "@Model.CuisineId")
+    @* @Html.LabelFor(model => model.CuisineId)
+    @Html.DropDownList("CuisineId") *@
+
+    <input type="hidden" value="@ViewBag.CuisineId" name="CuisineId" />
+
+    @* @Html.HiddenFor(model => model.CuisineId, new { Value = @ViewBag.theCuisine.CuisineId }) *@
 
     <input type="submit" value="Add the restaurant"/>
    
